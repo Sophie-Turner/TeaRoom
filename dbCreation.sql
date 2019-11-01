@@ -9,7 +9,7 @@ CREATE TABLE CategoryTable
 (
  CatName VARCHAR(50) NOT NULL,
  CatInfo TEXT,
- CatPic IMAGE,
+ CatPicFile VARCHAR,
  PRIMARY KEY (CatName)
 );
 
@@ -29,7 +29,7 @@ CREATE TABLE ItemTable
  ItemNum SMALLINT NOT NULL IDENTITY,
  ItemName VARCHAR(50) NOT NULL,
  ItemInfo TEXT,
- ItemPic IMAGE,
+ ItemPicFile VARCHAR,
  OnSale BIT NOT NULL DEFAULT 0,
  ItemPrice SMALLMONEY NOT NULL,
  CatName VARCHAR(50) NOT NULL,
