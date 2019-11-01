@@ -1,0 +1,53 @@
+CREATE TABLE StaffTable 
+(
+ StaffNum SMALLINT NOT NULL IDENTITY,
+ StaffName VARCHAR(50) NOT NULL,
+ PRIMARY KEY (StaffNum)
+);
+
+CREATE TABLE CategoryTable
+(
+ CatName VARCHAR(50) NOT NULL,
+ CatInfo TEXT,
+ CatPic IMAGE,
+ PRIMARY KEY (CatName)
+);
+
+CREATE TABLE OrderTable
+(
+ OrderNum INT NOT NULL IDENTITY,
+ TableNum TINYINT NOT NULL,
+ Completed BIT NOT NULL DEFAULT 0,
+ TotalPrice SMALLMONEY NOT NULL,
+ OrderTime DATETIME NOT NULL DEFAULT (GETDATE()),
+ StaffNum SMALLINT NOT NULL,
+ PRIMARY KEY (OrderNum)
+);
+
+CREATE TABLE ItemTable
+(
+ ItemNum SMALLINT NOT NULL IDENTITY,
+ ItemName VARCHAR(50) NOT NULL,
+ ItemInfo TEXT,
+ ItemPic IMAGE,
+ OnSale BIT NOT NULL DEFAULT 0,
+ ItemPrice SMALLMONEY NOT NULL,
+ CatName VARCHAR(50) NOT NULL,
+ PRIMARY KEY (ItemNum)
+);
+
+CREATE TABLE ItemOrderTable
+(
+ OrderNum INT NOT NULL,
+ ItemNum SMALLINT NOT NULL,
+ Quantity TINYINT NOT NULL,
+ PRIMARY KEY (OrderNum, ItemNum)
+);
+
+ALTER TABLE OrderTable
+ ADD CONSTRAINT OrderStaffConstraint
+ FOREIGN KEY (StaffNumKey) REFERENCES StaffTable(StaffNum);
+
+ALTER TABLE ItemTable
+ ADD CONSTRAINT ItemCatConstraint
+ FOREIGN KEY (CatNameKey) REFERENCES CategoryTable(CatName);
