@@ -1,11 +1,11 @@
-CREATE TABLE StaffTable 
+CREATE TABLE Staff
 (
  StaffNum SMALLINT NOT NULL IDENTITY,
  StaffName VARCHAR(50) NOT NULL,
  PRIMARY KEY (StaffNum)
 );
 
-CREATE TABLE CategoryTable
+CREATE TABLE Category
 (
  CatName VARCHAR(50) NOT NULL,
  CatInfo TEXT,
@@ -13,7 +13,7 @@ CREATE TABLE CategoryTable
  PRIMARY KEY (CatName)
 );
 
-CREATE TABLE OrderTable
+CREATE TABLE Orders
 (
  OrderNum INT NOT NULL IDENTITY,
  TableNum TINYINT NOT NULL,
@@ -24,7 +24,7 @@ CREATE TABLE OrderTable
  PRIMARY KEY (OrderNum)
 );
 
-CREATE TABLE ItemTable
+CREATE TABLE Item
 (
  ItemNum SMALLINT NOT NULL IDENTITY,
  ItemName VARCHAR(50) NOT NULL,
@@ -36,7 +36,7 @@ CREATE TABLE ItemTable
  PRIMARY KEY (ItemNum)
 );
 
-CREATE TABLE ItemOrderTable
+CREATE TABLE ItemOrder
 (
  OrderNum INT NOT NULL,
  ItemNum SMALLINT NOT NULL,
@@ -44,10 +44,10 @@ CREATE TABLE ItemOrderTable
  PRIMARY KEY (OrderNum, ItemNum)
 );
 
-ALTER TABLE OrderTable
- ADD CONSTRAINT OrderStaffConstraint
- FOREIGN KEY (StaffNumKey) REFERENCES StaffTable(StaffNum);
+ALTER TABLE Orders
+ ADD CONSTRAINT OrdersStaff
+ FOREIGN KEY (StaffNum) REFERENCES Staff(StaffNum);
 
-ALTER TABLE ItemTable
- ADD CONSTRAINT ItemCatConstraint
- FOREIGN KEY (CatNameKey) REFERENCES CategoryTable(CatName);
+ALTER TABLE Item
+ ADD CONSTRAINT ItemCat
+ FOREIGN KEY (CatName) REFERENCES Category(CatName);
