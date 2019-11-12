@@ -1,9 +1,9 @@
-INSERT INTO Category(CatName, CatInfo, CatPicFile)
+INSERT INTO Category(catName, catInfo, catPicFile)
 VALUES 
        ('Snacks', 'Freshly made snacks', 'scone.JPG'),
        ('Drinks', 'Refreshing beverages', 'rooibos.JPG');
 
-INSERT INTO Item(ItemName, ItemInfo, ItemPicFile, OnSale, ItemPrice, CatName)
+INSERT INTO Item(itemName, itemInfo, itemPicFile, onSale, itemPrice, catName)
 VALUES 
         ('Scone', '1 scone with jam and cream in separate containers. Ingredients: wheat flour, baking powder, caster sugar, sea salt, coconut oil, almond milk.', 'scone.JPG', 1, 1.20, 'Snacks'),
         ('Carrot cake', '1 slice. Ingredients: flour, sugar, egg, vegetable oil, bicarbonate of soda, salt, cinnamon, carrots, walnuts.', 'cake.JPG', 1, 2.00, 'Snacks'),
@@ -14,6 +14,6 @@ VALUES
         ('Coffee', 'Ground coffee in a 300 mL cup. Contains caffeine.', 'coffee.PNG', 1, 1.50, 'Drinks'),
         ('Rooibos tea', 'Caffeine-free tea made from the rooibos (redbush) plant.', 'rooisbos.JPG', 1, 1.20, 'Drinks');
 
-INSERT INTO Staff(StaffName)
+INSERT INTO Staff(staffName)
 VALUES
         ('Chris Mayne'), ('Colin Flowers'), ('Theresa May'), ('Shirley Isthebest');
