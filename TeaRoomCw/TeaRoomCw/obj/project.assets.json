@@ -8439,27 +8439,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\sturner14\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {},
+    "C:\\Users\\pipin\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\sturner14\\source\\repos\\TeaRoomCw\\TeaRoomCw\\TeaRoomCw.csproj",
+      "projectUniqueName": "C:\\Users\\pipin\\Documents\\Isad251_cw\\TeaRoomCw\\TeaRoomCw\\TeaRoomCw.csproj",
       "projectName": "TeaRoomCw",
-      "projectPath": "C:\\Users\\sturner14\\source\\repos\\TeaRoomCw\\TeaRoomCw\\TeaRoomCw.csproj",
-      "packagesPath": "C:\\Users\\sturner14\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\sturner14\\source\\repos\\TeaRoomCw\\TeaRoomCw\\obj\\",
+      "projectPath": "C:\\Users\\pipin\\Documents\\Isad251_cw\\TeaRoomCw\\TeaRoomCw\\TeaRoomCw.csproj",
+      "packagesPath": "C:\\Users\\pipin\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\pipin\\Documents\\Isad251_cw\\TeaRoomCw\\TeaRoomCw\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\sturner14\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Users\\pipin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.0"

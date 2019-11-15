@@ -9,8 +9,8 @@ namespace TeaRoomCw.Models
     public class Staff
     {
         [Key]
-        private int staffId { get; set; }
+        public int staffId { get; set; }
 
-        private string staffName { get; set; }
+        public string staffName { get; set; }
     }
 }
