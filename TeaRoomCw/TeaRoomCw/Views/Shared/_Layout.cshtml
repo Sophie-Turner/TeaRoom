@@ -3,37 +3,41 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - TeaRoomCw</title>
+    <title>@ViewData["Title"] - Puffing Express Tea Car</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <style>
+        body {
+            background-image: url("https://www.trainsafaris.com/uploads/2/1/2/7/21279846/1393497919.jpg");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+        }
+        div, main {
+        background-color: white;
+        text-align: center;
+        }
+        footer {
+        background-color: white;
+        }
+    </style>
 </head>
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">TeaRoomCw</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Puffing Express Tea Car</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <ul class="navbar-nav flex-grow-1">
+                       
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                        <li class="nav item">
-                            <a class=" nav-link text-dark" asp-area="" asp-controller="Categories" asp-action="Index">Categories</a>
-                        </li>
-                        <li class="nav item">
-                            <a class=" nav-link text-dark" asp-area="" asp-controller="Items" asp-action="Index">Items</a>
-                        </li>
-                        <li class="nav item">
-                            <a class=" nav-link text-dark" asp-area="" asp-controller="Orders" asp-action="Index">Orders</a>
-                        </li>
-                    </ul>
+                    </ul>                  
                 </div>
             </div>
         </nav>
@@ -46,7 +50,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2019 - TeaRoomCw - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            20/11/2019 - Puffing Express Tea Car - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
