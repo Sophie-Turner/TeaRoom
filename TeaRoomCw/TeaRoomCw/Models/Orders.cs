@@ -15,6 +15,5 @@ namespace TeaRoomCw.Models
         public int completed { get; set; }
         public double totalPrice { get; set; }
         public DateTime orderTime { get; set; }
-        public int staffId { get; set; }
     }
 }
