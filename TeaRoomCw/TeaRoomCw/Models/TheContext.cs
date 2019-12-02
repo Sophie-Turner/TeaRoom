@@ -12,10 +12,7 @@ namespace TeaRoomCw.Models
         public DbSet<Category> Categories { get; set; }
         public DbSet<Item> Items { get; set; }
         public DbSet<ItemOrder> ItemOrders { get; set; }
-        public DbSet<Orders> Orders { get; set; }
-        public DbSet<Staff> Staffs { get; set; }
-
-         
+        public DbSet<Orders> Orders { get; set; }   
 
     }
 }
