@@ -1,0 +1,74 @@
+﻿
+@{
+    ViewData["Title"] = "NewProduct";
+    Layout = "~/Views/Shared/StaffLayout.cshtml";
+}
+
+<div class="container-fluid mt-1 px-1">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="car-border-primary mb-3">
+                <div class="card-header bg-primary text-white">Create a new product</div>
+                <div class="card-body">
+                    <form asp-controller="Items" asp-action="Create" method="post">
+                        <div class="form-group row">
+                            <label for="itemName" class="col-sm-2 col-form-label">Product name</label>
+                            <div class="col-sm-8">
+                                <input type="text" name="itemName" placeholder="Name" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="chooseImage" class="col-sm-2 col-form-label">Image</label>
+                            <div class="col-sm-6">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="chooseImage">Upload</span>
+                                    </div>
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" id="inputFile"
+                                               aria-describedby="chooseImage">
+                                        <label class="custom-file-label" for="inputGroupFile01">Choose image</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="itemPrice" class="col-sm-2 col-form-label">Price £</label>
+                            <div class="col-sm-8">
+                                <input type="text" name="itemPrice" placeholder="1.00" class="form-control" />
+                            </div>
+
+                        </div>
+                        <div class="form-group row">
+                            <label for="itemInfo" class="col-sm-2 col-form-label">Product description</label>
+                            <div class="col-sm-8">
+                                <textarea rows="3" name="itemInfo" placeholder="Info" class="form-control"></textarea>
+                            </div>
+
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-sm-2"></div>
+                            <div class="col-sm-2">
+                                <div class="form-check">
+                                    <input type="radio" class="form-check-input" id="radDrink" name="grpCategory">
+                                    <label class="form-check-label" for="radDrink">Drink</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-2">
+                                <div class="form-check">
+                                    <input type="radio" class="form-check-input" id="radSnack" name="grpCategory">
+                                    <label class="form-check-label" for="radSnack">Snack</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group-row">
+                            <button type="submit" class="btn btn-success" name="submitNewItem">Submit</button>
+                            <button type="reset" class="btn btn-danger">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

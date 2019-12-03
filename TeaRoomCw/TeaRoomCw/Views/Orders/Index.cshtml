@@ -25,9 +25,6 @@
             <th>
                 @Html.DisplayNameFor(model => model.orderTime)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.staffId)
-            </th>
             <th></th>
         </tr>
     </thead>
@@ -45,9 +42,6 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.orderTime)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.staffId)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.orderId">Edit</a> |
