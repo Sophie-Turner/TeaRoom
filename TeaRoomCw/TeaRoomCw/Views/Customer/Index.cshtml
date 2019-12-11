@@ -4,61 +4,52 @@
     Layout = "~/Views/Shared/CustomerLayout.cshtml";
 }
 
+@model TeaRoomCw.Models.Item
+
 <h1>Menu</h1>
 <div class="container-fluid" style="margin-top: 20px">
     <div class="row">
-        <div class="col-sm-1"></div>
-        <div class="col-sm-5">
-            <h2>Drinks</h2>
 
+        <div class="col-sm-4">
+            <h2>Drinks</h2>
         </div>
 
-        <div class="col-sm-5">
+        <div class="col-sm-4">
             <h2>Snacks</h2>
         </div>
+
+        <div class="col-sm-4">
+            <h2>My order</h2>
+        </div>
+
+    </div>
+
+    <div class="row">
+
         <div class="col-sm-1"></div>
+
+        <div class="col-sm-2" style="width: 18rem;">
+
+           <!--Select list here--> 
+
+        </div>
+        
+        <div class="col-sm-2"></div>        
+        
+        <div class="col-sm-2" style="width: 18rem;">
+
+            <!--Select list here-->
+
+        </div>
+        
+        <div class="col-sm-1"></div>
+
+        <div class="col-sm-4">
+
+            <!--Order stuff here-->
+
+        </div>
     </div>
-    <div class="row">
-        <div class="col-sm-2"></div>
-        <div class="col-sm-3" style="width: 18rem;">
-            <img src="~/Images/tea.jpg" class="card-img-top" alt="Tea car shaped teapot">
-            <div class="card-body">
-                <h5 class="card-title">Tea</h5>
-                <p class="card-text">A pot of tea</p>
-                <a href="#" class="btn btn-primary">Add to my order</a>
-            </div>
-        </div>
-        <div class="col-sm-2"></div>
-        <div class="col-sm-3" style="width: 18rem;">
-            <img src="~/Images/biscuit.png" class="card-img-top" alt="Locomotive shaped biscuit">
-            <div class="card-body">
-                <h5 class="card-title">Biscuit</h5>
-                <p class="card-text">A large, home-made biscuit</p>
-                <a href="#" class="btn btn-primary">Add to my order</a>
-            </div>
-        </div>
-        <div class="col-sm-2"></div>
-    </div>
-    <div class="row">
-        <div class="col-sm-2"></div>
-        <div class="col-sm-3" style="width: 18rem;">
-            <img src="~/Images/tea.jpg" class="card-img-top" alt="Tea car shaped teapot">
-            <div class="card-body">
-                <h5 class="card-title">Drink</h5>
-                <p class="card-text">Another drink</p>
-                <a href="#" class="btn btn-primary">Add to my order</a>
-            </div>
-        </div>
-        <div class="col-sm-2"></div>
-        <div class="col-sm-3" style="width: 18rem;">
-            <img src="~/Images/biscuit.png" class="card-img-top" alt="Locomotive shaped biscuit">
-            <div class="card-body">
-                <h5 class="card-title">Snack</h5>
-                <p class="card-text">Another snack</p>
-                <a href="#" class="btn btn-primary">Add to my order</a>
-            </div>
-        </div>
-        <div class="col-sm-2"></div>
-    </div>
+
 </div>
 
