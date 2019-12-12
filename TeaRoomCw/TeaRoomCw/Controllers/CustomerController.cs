@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using TeaRoomCw.Models;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Data.Entity.SqlServer;
 
 namespace TeaRoomCw.Controllers
 {
@@ -23,7 +24,7 @@ namespace TeaRoomCw.Controllers
                                                        select new SelectListItem
                                                        {
                                                            Text = eachItem.itemName,
-                                                           Value = eachItem.itemId.ToString()
+                                                           Value = eachItem.itemName
                                                        }).ToList();
 
 
@@ -33,7 +34,7 @@ namespace TeaRoomCw.Controllers
                                                        select new SelectListItem
                                                        {
                                                            Text = eachItem.itemName,
-                                                           Value = eachItem.itemId.ToString()
+                                                           Value = eachItem.itemName
                                                        }).ToList();
 
             ViewBag.Snacks = selectSnack;

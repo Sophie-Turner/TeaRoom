@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/CustomerLayout.cshtml";
 }
 
-@model TeaRoomCw.Models.Item
+@model TeaRoomCw.Models.Items
 
 <h1>Menu</h1>
 <div class="container-fluid" style="margin-top: 20px">
@@ -30,7 +30,7 @@
 
         <div class="col-sm-2" style="width: 18rem;">
 
-            <select class="custom-select mr-sm-2 form-control" name="selectDrink" asp-for="itemId"
+            <select class="custom-select mr-sm-2 form-control" name="selectDrink" asp-for="itemName"
                     asp-items="(IEnumerable<SelectListItem>)ViewBag.Drinks">
                 
             </select> 

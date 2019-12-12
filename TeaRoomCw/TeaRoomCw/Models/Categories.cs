@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace TeaRoomCw.Models
 {
-    public class Category
+    public class Categories
     {
         [Key]
         public int catId { get; set; }

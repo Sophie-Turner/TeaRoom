@@ -53,7 +53,7 @@ namespace TeaRoomCw.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("catId,catName,catInfo,catPicFile")] Category category)
+        public async Task<IActionResult> Create([Bind("catId,catName,catInfo,catPicFile")] Categories category)
         {
             if (ModelState.IsValid)
             {
@@ -85,7 +85,7 @@ namespace TeaRoomCw.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("catId,catName,catInfo,catPicFile")] Category category)
+        public async Task<IActionResult> Edit(int id, [Bind("catId,catName,catInfo,catPicFile")] Categories category)
         {
             if (id != category.catId)
             {

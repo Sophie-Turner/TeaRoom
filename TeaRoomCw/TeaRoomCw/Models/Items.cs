@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace TeaRoomCw.Models
 {
-    public class Item
+    public class Items
     {
         [Key]
         public int itemId { get; set; }

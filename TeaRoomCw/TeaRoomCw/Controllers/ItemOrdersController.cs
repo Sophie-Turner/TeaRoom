@@ -53,7 +53,7 @@ namespace TeaRoomCw.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("orderId,itemId,quantity")] ItemOrder itemOrder)
+        public async Task<IActionResult> Create([Bind("orderId,itemId,quantity")] ItemOrders itemOrder)
         {
             if (ModelState.IsValid)
             {
@@ -85,7 +85,7 @@ namespace TeaRoomCw.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("orderId,itemId,quantity")] ItemOrder itemOrder)
+        public async Task<IActionResult> Edit(int id, [Bind("orderId,itemId,quantity")] ItemOrders itemOrder)
         {
             if (id != itemOrder.orderId)
             {
