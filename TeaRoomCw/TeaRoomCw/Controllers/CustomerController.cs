@@ -18,14 +18,25 @@ namespace TeaRoomCw.Controllers
         }
         public IActionResult Index()
         {
-            IEnumerable<> menuItems = (from eachItem in theContext.Items.AsEnumerable()
-                                                     select new SelectListItem
-                                                     {
-                                                         Text = eachItem.itemName,
-                                                         Value = eachItem.itemId.ToString()
-                                                     }).ToList();
+            IEnumerable<SelectListItem> selectDrink = (from eachItem in theContext.Items.AsEnumerable() 
+                                                       where eachItem.catId == 0
+                                                       select new SelectListItem
+                                                       {
+                                                           Text = eachItem.itemName,
+                                                           Value = eachItem.itemId.ToString()
+                                                       }).ToList();
 
-            ViewBag.Items = menuItems;
+
+            ViewBag.Drinks = selectDrink;
+            IEnumerable<SelectListItem> selectSnack = (from eachItem in theContext.Items.AsEnumerable()
+                                                       where eachItem.catId == 1
+                                                       select new SelectListItem
+                                                       {
+                                                           Text = eachItem.itemName,
+                                                           Value = eachItem.itemId.ToString()
+                                                       }).ToList();
+
+            ViewBag.Snacks = selectSnack;
             return View();
         }
 
