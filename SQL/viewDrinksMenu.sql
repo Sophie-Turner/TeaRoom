@@ -1,7 +1,7 @@
 CREATE VIEW DrinksMenu AS 
 SELECT itemPicFile, itemName, itemInfo, itemPrice
-FROM Item
-WHERE Item.catId = 1;
+FROM Items
+WHERE Items.catId = 1;
 
 
 

@@ -1,17 +1,5 @@
-DROP TABLE itemOrder;
-DROP TABLE item;
-DROP TABLE Orders;
-DROP TABLE Category;
-DROP TABLE Staff;
 
-CREATE TABLE Staff
-(
- staffId SMALLINT NOT NULL IDENTITY,
- staffName VARCHAR(50) NOT NULL,
- CONSTRAINT pk_Staff PRIMARY KEY (staffId)
-);
-
-CREATE TABLE Category
+CREATE TABLE Categories
 (
  catId INT NOT NULL IDENTITY,
  catName VARCHAR(50) NOT NULL,
@@ -23,46 +11,43 @@ CREATE TABLE Category
 CREATE TABLE Orders
 (
  orderId INT NOT NULL IDENTITY,
- tableNum TINYINT NOT NULL,
+ tableNum INT NOT NULL,
  completed BIT NOT NULL DEFAULT 0,
- totalPrice SMALLMONEY NOT NULL,
+ totalPrice MONEY NOT NULL,
  orderTime DATETIME NOT NULL DEFAULT (GETDATE()),
- staffId SMALLINT NOT NULL,
+ staffId INT NOT NULL,
  CONSTRAINT pk_Orders PRIMARY KEY (orderId)
 );
 
-CREATE TABLE Item
+CREATE TABLE Items
 (
- itemId SMALLINT NOT NULL IDENTITY,
+ itemId INT NOT NULL IDENTITY,
  itemName VARCHAR(50) NOT NULL,
  itemInfo TEXT,
  itemPicFile VARCHAR(200),
  onSale BIT NOT NULL DEFAULT 0,
- itemPrice SMALLMONEY NOT NULL,
+ itemPrice MONEY NOT NULL,
  catId INT NOT NULL,
  CONSTRAINT pk_Item PRIMARY KEY (itemId)
 );
 
-CREATE TABLE ItemOrder
+CREATE TABLE ItemOrders
 (
  orderId INT NOT NULL,
- itemId SMALLINT NOT NULL,
- quantity TINYINT NOT NULL,
+ itemId INT NOT NULL,
+ quantity INT NOT NULL,
  CONSTRAINT pk_ItemOrder PRIMARY KEY (orderId, itemId)
 );
 
-ALTER TABLE Orders
- ADD CONSTRAINT fk_Orders
- FOREIGN KEY (staffId) REFERENCES Staff(staffId);
 
-ALTER TABLE Item
- ADD CONSTRAINT fk_Item
- FOREIGN KEY (catId) REFERENCES Category(catId);
+ALTER TABLE Items
+ ADD CONSTRAINT fk_Items
+ FOREIGN KEY (catId) REFERENCES Categories(catId);
         
-ALTER TABLE ItemOrder
- ADD CONSTRAINT fk_ItemOrder_Orders
+ALTER TABLE ItemOrders
+ ADD CONSTRAINT fk_ItemOrders_Orders
  FOREIGN KEY (orderId) REFERENCES Orders(orderId);
 
-ALTER TABLE ItemOrder 
- ADD CONSTRAINT fk_ItemOrder_Item
- FOREIGN KEY (itemId) REFERENCES Item(itemId);
+ALTER TABLE ItemOrders 
+ ADD CONSTRAINT fk_ItemOrder_Items
+ FOREIGN KEY (itemId) REFERENCES Items(itemId);
