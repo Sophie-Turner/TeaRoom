@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using TeaCar.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace TeaCar
 {
@@ -24,6 +26,9 @@ namespace TeaCar
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddDbContext<ISAD251_STurnerContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("SophieDatabase")));
+            //Get the connection string and create it when we need it.
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

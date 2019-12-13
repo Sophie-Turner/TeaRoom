@@ -1,0 +1,62 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/CustomerLayout.cshtml";
+}
+
+@model TeaCar.Models.Items
+
+<h1>Menu</h1>
+<div class="container-fluid" style="margin-top: 20px">
+    <div class="row">
+
+        <div class="col-sm-4">
+            <h2>Drinks</h2>
+        </div>
+
+        <div class="col-sm-4">
+            <h2>Snacks</h2>
+        </div>
+
+        <div class="col-sm-4">
+            <h2>My order</h2>
+        </div>
+
+    </div>
+
+    <div class="row">
+
+        <div class="col-sm-1"></div>
+
+        <div class="col-sm-2" style="width: 18rem;">
+            <select class="custom-select form-control" name="selectDrink" asp-for="ItemId"
+                    asp-items="(IEnumerable<SelectListItem>)ViewBag.Drinks">
+            </select>
+        </div>
+
+        <div class="col-sm-2"></div>
+
+        <div class="col-sm-2" style="width: 18rem;">
+            <select class="custom-select form-control" name="selectSnack">
+                <option></option>
+            </select>
+        </div>
+
+        <div class="col-sm-1"></div>
+
+        <div class="col-sm-4">
+
+            <!--Order stuff here-->
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-4" style="width: 18rem;">
+            @*<img class="card-img-top" src="~/Images/rooibos.jpg" height="200" width="100" alt="Cup of black tea">
+                <div class="card-body">
+                    <a class="card-text" asp-controller="Customer" asp-action="Index">Customer area</a>
+                </div>*@
+        </div>
+    </div>
+    </div>
