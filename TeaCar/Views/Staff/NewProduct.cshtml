@@ -10,7 +10,7 @@
                 <div class="car-border-primary mb-3">
                     <div class="card-header bg-primary text-white">Add a new product</div>
                     <div class="card-body">
-                        <form asp-controller="Items" asp-action="CreateItem" method="post">
+                        <form asp-controller="Staff" asp-action="CreateItem" method="post">
                             <div class="form-group row">
                                 <label for="itemName" class="col-sm-2 col-form-label">Product name</label>
                                 <div class="col-sm-8">
@@ -18,15 +18,15 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="chooseImage" class="col-sm-2 col-form-label">Image</label>
+                                <label for="itemPicFile" class="col-sm-2 col-form-label">Image</label>
                                 <div class="col-sm-6">
                                     <div class="input-group">
                                         <div class="input-group-prepend">
-                                            <span class="input-group-text" id="chooseImage">Upload</span>
+                                            <span class="input-group-text" id="itemPicFile">Upload</span>
                                         </div>
                                         <div class="custom-file">
                                             <input type="file" class="custom-file-input" id="inputFile"
-                                                   aria-describedby="chooseImage">
+                                                   aria-describedby="itemPicFile">
                                             <label class="custom-file-label" for="inputGroupFile01">Choose image</label>
                                         </div>
                                     </div>
@@ -51,17 +51,31 @@
                                 <div class="col-sm-2"></div>
                                 <div class="col-sm-2">
                                     <div class="form-check">
-                                        <input type="radio" class="form-check-input" id="radDrink" name="grpCategory">
-                                        <label class="form-check-label" for="radDrink">Drink</label>
+                                        <input type="radio" class="form-check-input" id="1" name="catId" value="1">
+                                        <label class="form-check-label" for="1">Drink</label>
                                     </div>
                                 </div>
                                 <div class="col-sm-2">
                                     <div class="form-check">
-                                        <input type="radio" class="form-check-input" id="radSnack" name="grpCategory">
-                                        <label class="form-check-label" for="radSnack">Snack</label>
+                                        <input type="radio" class="form-check-input" id="2" name="catId" value="2">
+                                        <label class="form-check-label" for="2">Snack</label>
+                                    </div>
+                                </div>
+                            
+                                <div class="col-sm-2">
+                                    <div class="form-check">
+                                        <input type="radio" class="form-check-input" id="1" name="onSale" value="1">
+                                        <label class="form-check-label" for="1">On sale now</label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <div class="form-check">
+                                        <input type="radio" class="form-check-input" id="0" name="onSale" value="0">
+                                        <label class="form-check-label" for="0">Not on sale yet</label>
                                     </div>
                                 </div>
                             </div>
+
                             <div class="form-group-row">
                                 <button type="submit" class="btn btn-success" name="submitNewItem">Submit</button>
                                 <button type="reset" class="btn btn-danger">Cancel</button>

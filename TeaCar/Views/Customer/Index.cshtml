@@ -37,26 +37,69 @@
         <div class="col-sm-2"></div>
 
         <div class="col-sm-2" style="width: 18rem;">
-            <select class="custom-select form-control" name="selectSnack">
-                <option></option>
+            <select class="custom-select form-control" name="selectSnack" asp-for="ItemId"
+                    asp-items="(IEnumerable<SelectListItem>)ViewBag.Snacks">
             </select>
         </div>
 
         <div class="col-sm-1"></div>
 
-        <div class="col-sm-4">
-
-            <!--Order stuff here-->
-
-        </div>
+        <div class="col-sm-4"></div>
     </div>
 
     <div class="row">
-        <div class="col-sm-4" style="width: 18rem;">
-            @*<img class="card-img-top" src="~/Images/rooibos.jpg" height="200" width="100" alt="Cup of black tea">
-                <div class="card-body">
-                    <a class="card-text" asp-controller="Customer" asp-action="Index">Customer area</a>
-                </div>*@
+        <div class="col-sm-4" >
+
+            <!--Picture of drink & info-->
+            <img class="card-img-top" src="~/Images/water.jpg" height="200" width="100" alt="Selected drink">
+            <div class="card-body">
+                <a class="card-text">Price & information about the selected drink...</a>
+            </div>
+
+        </div>
+
+        <div class="col-sm-4" >
+
+            <!--Picture of snack & info-->
+            <img class="card-img-top" src="~/Images/scone.jpg" height="200" width="100" alt="Selected drink">
+            <div class="card-body">
+                <a class="card-text">Price & information about the selected snack...</a>
+            </div>
+
+        </div>
+
+        <div class="col-sm-4">
+
+            <ul class="list-group">
+                <li class="list-group-item">Thingy 1</li>
+                <li class="list-group-item">Thingy 2</li>
+            </ul>
+            <h5>Total: £</h5>
+
         </div>
     </div>
+    <div class="row">
+        <div class="col-sm-4">
+            <form asp-controller="Customer" asp-action="AddToOrder(selectedDrink)" method="post">
+                <div class="form-group-row">
+                    <button type="submit" class="btn btn-success" name="addToOrder">Add to order</button>                    
+                </div>
+            </form>
+        </div>
+        <div class="col-sm-4">
+            <form asp-controller="Customer" asp-action="AddToOrder(selectedSnack)" method="post">
+                <div class="form-group-row">
+                    <button type="submit" class="btn btn-success" name="addToOrder">Add to order</button>
+                </div>
+            </form>
+        </div>
+        <div class="col-sm-4">
+            <form asp-controller="" asp-action="" method="post">
+                <div class="form-group-row">
+                    <button type="submit" class="btn btn-success" name="completeOrder">Complete order</button>
+                    <button type="reset" class="btn btn-danger">Clear</button>
+                </div>
+            </form>
+        </div>
     </div>
+</div> 
