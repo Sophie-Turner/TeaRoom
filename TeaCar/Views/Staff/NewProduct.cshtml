@@ -85,5 +85,18 @@
                 </div>
             </div>
         </div>
+        @{ 
+            if((ViewBag.NewItem != null) && ((int)ViewBag.NewItem != 0)){
+                <div class="col-sm-12">
+                    <div class="card bg-success mb-3">
+                        <div class="card-header">
+                            The new item was added to the database.
+                        </div>
+
+                    </div>
+                </div>
+            }
+
+        }
     </div>
 
