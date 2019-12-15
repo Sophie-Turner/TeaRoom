@@ -9,7 +9,6 @@ C:\Users\pipin\Documents\Isad251_cw\TeaCar\bin\Debug\netcoreapp3.0\TeaCar.dll
 C:\Users\pipin\Documents\Isad251_cw\TeaCar\bin\Debug\netcoreapp3.0\TeaCar.pdb
 C:\Users\pipin\Documents\Isad251_cw\TeaCar\bin\Debug\netcoreapp3.0\TeaCar.Views.dll
 C:\Users\pipin\Documents\Isad251_cw\TeaCar\bin\Debug\netcoreapp3.0\TeaCar.Views.pdb
-C:\Users\pipin\Documents\Isad251_cw\TeaCar\obj\Debug\netcoreapp3.0\TeaCar.csprojAssemblyReference.cache
 C:\Users\pipin\Documents\Isad251_cw\TeaCar\obj\Debug\netcoreapp3.0\staticwebassets\TeaCar.StaticWebAssets.Manifest.cache
 C:\Users\pipin\Documents\Isad251_cw\TeaCar\obj\Debug\netcoreapp3.0\staticwebassets\TeaCar.StaticWebAssets.xml
 C:\Users\pipin\Documents\Isad251_cw\TeaCar\obj\Debug\netcoreapp3.0\TeaCar.RazorAssemblyInfo.cache

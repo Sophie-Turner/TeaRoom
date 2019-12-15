@@ -14,10 +14,10 @@
                             <div class="form-group row">
                                 <label for="itemName" class="col-sm-2 col-form-label">Product name</label>
                                 <div class="col-sm-8">
-                                    <input type="text" name="itemName" placeholder="Name" class="form-control" />
+                                    <input type="text" name="itemName" placeholder="Coffee" class="form-control" />
                                 </div>
                             </div>
-                            <div class="form-group row">
+                            @*<div class="form-group row">
                                 <label for="itemPicFile" class="col-sm-2 col-form-label">Image</label>
                                 <div class="col-sm-6">
                                     <div class="input-group">
@@ -31,7 +31,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div>*@
                             <div class="form-group row">
                                 <label for="itemPrice" class="col-sm-2 col-form-label">Price £</label>
                                 <div class="col-sm-8">
@@ -50,30 +50,26 @@
                             <div class="form-group row">
                                 <div class="col-sm-2"></div>
                                 <div class="col-sm-2">
-                                    <div class="form-check">
-                                        <input type="radio" class="form-check-input" id="1" name="catId" value="1">
-                                        <label class="form-check-label" for="1">Drink</label>
+                                    <div class="col-sm-2">
+                                        <select class="custom-select form-control" name="catId" style="width: 10rem;">
+                                            <option>Select category</option>
+                                            <option value=1>Drink</option>
+                                            <option value=2>Snack</option>
+                                        </select>
                                     </div>
                                 </div>
-                                <div class="col-sm-2">
-                                    <div class="form-check">
-                                        <input type="radio" class="form-check-input" id="2" name="catId" value="2">
-                                        <label class="form-check-label" for="2">Snack</label>
-                                    </div>
-                                </div>
+
                             
                                 <div class="col-sm-2">
-                                    <div class="form-check">
-                                        <input type="radio" class="form-check-input" id="1" name="onSale" value="1">
-                                        <label class="form-check-label" for="1">On sale now</label>
+                                    <div class="col-sm-2">
+                                        <select class="custom-select form-control" name="onSale" style="width: 10rem;">
+                                            <option>Select sale status</option>
+                                            <option value=true>On sale now</option>
+                                            <option value=false>Not on sale yet</option>
+                                        </select>
                                     </div>
                                 </div>
-                                <div class="col-sm-2">
-                                    <div class="form-check">
-                                        <input type="radio" class="form-check-input" id="0" name="onSale" value="0">
-                                        <label class="form-check-label" for="0">Not on sale yet</label>
-                                    </div>
-                                </div>
+
                             </div>
 
                             <div class="form-group-row">
@@ -87,12 +83,13 @@
         </div>
         @{ 
             if((ViewBag.NewItem != null) && ((int)ViewBag.NewItem != 0)){
-                <div class="col-sm-12">
-                    <div class="card bg-success mb-3">
-                        <div class="card-header">
-                            The new item was added to the database.
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="card bg-success mb-3">
+                            <div class="card-header  bg-success text-white">
+                                The new item was added to the database.
+                            </div>
                         </div>
-
                     </div>
                 </div>
             }

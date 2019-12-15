@@ -23,7 +23,7 @@ namespace TeaCar.Controllers
         public IActionResult Index()
         {            
             IEnumerable<SelectListItem> DrinksList = (from eachItem in _context.Items.AsEnumerable()
-                                                      where eachItem.CatId == 1
+                                                      where eachItem.CatId == 1 where eachItem.OnSale = true
                                                       select new SelectListItem 
                                                       {
                                                           Text = eachItem.ItemName,
@@ -33,7 +33,7 @@ namespace TeaCar.Controllers
             ViewBag.Drinks = DrinksList;
 
             IEnumerable<SelectListItem> SnacksList = (from eachItem in _context.Items.AsEnumerable()
-                                                      where eachItem.CatId == 2
+                                                      where eachItem.CatId == 2 where eachItem.OnSale = true
                                                       select new SelectListItem
                                                       {
                                                           Text = eachItem.ItemName,

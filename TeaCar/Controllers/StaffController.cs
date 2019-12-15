@@ -29,16 +29,15 @@ namespace TeaCar.Controllers
         [HttpPost]
         public IActionResult CreateItem(CreateNewItem createNewItem)
         {
-            var rowsAffected = _context.Database.ExecuteSqlRaw("EXEC CreateItem @itemName, @itemInfo, @itemPicFile, @onSale, @itemPrice, @catId",
+            var rowsAffected = _context.Database.ExecuteSqlRaw("EXEC CreateNewItem @itemName, @itemInfo, @onSale, @itemPrice, @catId",
                 new SqlParameter("@itemName", createNewItem.itemName.ToString()),
                 new SqlParameter("@itemInfo", createNewItem.itemInfo.ToString()),
-                new SqlParameter("@itemPicFile", createNewItem.itemPicFile.ToString()),
                 new SqlParameter("@onSale", createNewItem.onSale),
-                new SqlParameter("@itemName", createNewItem.itemPrice),
-                new SqlParameter("@itemName", createNewItem.catId));
+                new SqlParameter("@itemPrice", createNewItem.itemPrice),
+                new SqlParameter("@catId", createNewItem.catId));
 
             ViewBag.NewItem = rowsAffected;
-            return View("Index"); //Go back to the staff home page.
+            return View("NewProduct"); //Stay on the same page.
         }
     }
 }
