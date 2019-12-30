@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using TeaCar.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Data.SqlClient;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 
 namespace TeaCar.Controllers
@@ -13,11 +14,28 @@ namespace TeaCar.Controllers
     public class StaffController : Controller
     {
         private readonly ISAD251_STurnerContext _context;
+        
         public StaffController(ISAD251_STurnerContext context)
         {
             _context = context;
         }
         public IActionResult Index()
+        {
+            return View();
+        }
+        public IActionResult Products()
+        {
+            IEnumerable<SelectListItem> ItemList = (from eachItem in _context.Items.AsEnumerable()
+                                                      select new SelectListItem
+                                                      {
+                                                          Text = eachItem.ItemName,
+                                                          Value = eachItem.ItemId.ToString()
+                                                      }).ToList();
+            //Linq
+            ViewBag.Items = ItemList;
+            return View();
+        }
+        public IActionResult EditProduct()
         {
             return View();
         }

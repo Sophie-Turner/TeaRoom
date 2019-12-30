@@ -169,3 +169,5 @@ C:\Users\pipin\Documents\Isad251_cw\TeaCar\bin\Debug\netcoreapp3.0\runtimes\win\
 C:\Users\pipin\Documents\Isad251_cw\TeaCar\bin\Debug\netcoreapp3.0\runtimes\win\lib\netcoreapp2.0\System.Text.Encoding.CodePages.dll
 C:\Users\pipin\Documents\Isad251_cw\TeaCar\bin\Debug\netcoreapp3.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
 C:\Users\pipin\Documents\Isad251_cw\TeaCar\obj\Debug\netcoreapp3.0\TeaCar.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\pipin\Documents\Isad251_cw\TeaCar\obj\Debug\netcoreapp3.0\Razor\Views\Staff\Products.cshtml.g.cs
+C:\Users\pipin\Documents\Isad251_cw\TeaCar\obj\Debug\netcoreapp3.0\Razor\Views\Staff\EditProduct.cshtml.g.cs
