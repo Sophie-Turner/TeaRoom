@@ -8,23 +8,33 @@
 
 <h1>Products</h1>
 <div class="container-fluid" style="margin-top: 20px">
+    <div class="row">
+        <div class="col-sm-12">
+            <a type="button" class="btn btn-primary" name="addNewItem" asp-controller="Staff" asp-action="NewProduct">
+                Add a new product
+            </a>
+        </div>
+    </div>
 
     <div class="row">
+        <div class="col-sm-12">
+            <h5> </h5>
+        </div>
+    </div>
 
-        <div class="col-sm-2"></div>
-
-        <div class="col-sm-2" style="width: 18rem;">
+    <div class="row">
+        <div class="col-sm-5"></div>
+        <div class="col-sm-2">
             <select class="custom-select form-control" name="selectItem" asp-for="ItemId"
                     asp-items="(IEnumerable<SelectListItem>)ViewBag.Items">
             </select>
         </div>
-
-        <div class="col-sm-8"></div>
-
+        <div class="col-sm-5"></div>
     </div>
 
     <div class="row">
-        <div class="col-sm-6">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4">
 
             <!--Picture of drink & info-->
             <img class="card-img-top" src="~/Images/water.jpg" height="200" width="100" alt="Selected drink">
@@ -33,21 +43,16 @@
             </div>
 
         </div>
-
-        <div class="col-sm-6">
-               <button type="button" class="btn btn-primary" name="addNewItem" asp-controller="Staff" asp-action="NewProduct">
-               Add a new product</button>
-        </div>
-
+        <div class="col-sm-4"></div>
     </div>
 
     <div class="row">
-        <div class="col-sm-6"></div>
-        <div class="col-sm-6">
-              <button type="button" class="btn btn-primary" name="editItem" asp-controller="Staff" asp-action="EditProduct">
-              Edit this product</button>
+        <div class="col-sm-12">
+            <a type="button" class="btn btn-primary" name="editItem" asp-controller="Staff" asp-action="EditProduct">
+                Edit this product
+            </a>
         </div>
-       
+
     </div>
 </div>
 
