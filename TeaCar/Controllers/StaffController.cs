@@ -57,5 +57,17 @@ namespace TeaCar.Controllers
             ViewBag.NewItem = rowsAffected;
             return View("NewProduct"); //Stay on the same page.
         }
+
+        [HttpPost]
+
+        public IActionResult EditItem(UpdateItem updateItem)
+        {
+            var rowsAffected = _context.Database.ExecuteSqlRaw(
+                "EXEC UpdateItem @itemId, @newItemName, @newItemInfo, @newOnSale, @newitemPrice, @newCatId",
+                
+                )
+                
+            return View("EditItem");
+        }
     }
 }

@@ -23,7 +23,8 @@
                         </div>
                         <div class="col-sm-3"></div>
                     </div>
-                    <form asp-controller="Items" asp-action="CreateItem" method="post">
+                    <form asp-controller="" asp-action="" method="post">
+    <!--After this method's functionality, have it display message, then send customer back to Index. See example message below-->
 
                         <div class="form-group-row">
                             <label for="table" class="col-sm-2 col-form-label">Table number</label>
@@ -48,8 +49,8 @@
     </div>
 </div>
 
-<!--
-@{
+
+@{ /*
     if ((ViewBag.NewItem != null) && ((int)ViewBag.NewItem != 0))
     {
         <div class="row">
@@ -63,6 +64,6 @@
         </div>
     }
 
-}
--->
+*/}
+
 
