@@ -96,7 +96,8 @@
         <div class="col-sm-4">
             <form asp-controller="" asp-action="" method="post">
                 <div class="form-group-row">
-                    <button type="submit" class="btn btn-success" name="completeOrder">Complete order</button>
+                    <a type="submit" class="btn btn-success" name="completeOrder" asp-controller="Customer" asp-action="OrderFinalisation">
+                     Complete order</a>
                     <button type="reset" class="btn btn-danger">Clear</button>
                 </div>
             </form>

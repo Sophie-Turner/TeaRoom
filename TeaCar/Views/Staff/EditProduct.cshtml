@@ -4,5 +4,100 @@
     Layout = "~/Views/Shared/StaffLayout.cshtml";
 }
 
-<h1>EditProduct</h1>
+<h1>Edit product listing and information</h1>
+
+<div class="container-fluid mt-1 px-1">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card-border-primary mb-3">
+                <div class="card-body">
+                    <form asp-controller="Staff" asp-action="EditItem" method="post">
+                        <div class="form-group row">
+                            <label for="itemName" class="col-sm-2 col-form-label">Product name</label>
+                            <div class="col-sm-8">
+                                <input type="text" name="itemName" placeholder="This item's name (pass in)" class="form-control" />
+                            </div>
+                        </div>
+                        @*<div class="form-group row">
+                                <label for="itemPicFile" class="col-sm-2 col-form-label">Image</label>
+                                <div class="col-sm-6">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="itemPicFile">Upload</span>
+                                        </div>
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input" id="inputFile"
+                                                   aria-describedby="itemPicFile">
+                                            <label class="custom-file-label" for="inputGroupFile01">Choose image</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>*@
+                        <div class="form-group row">
+                            <label for="itemPrice" class="col-sm-2 col-form-label">Price £</label>
+                            <div class="col-sm-8">
+                                <input type="text" name="itemPrice" placeholder="This item's price (pass in)" class="form-control" />
+                            </div>
+
+                        </div>
+                        <div class="form-group row">
+                            <label for="itemInfo" class="col-sm-2 col-form-label">Product description</label>
+                            <div class="col-sm-8">
+                                <textarea rows="3" name="itemInfo" placeholder="This item's info (pass in)" class="form-control"></textarea>
+                            </div>
+
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-sm-2"></div>
+                            <div class="col-sm-2">
+                                <div class="col-sm-2">
+                                    <select class="custom-select form-control" name="catId" style="width: 10rem;">
+                                        <option>Select category</option>
+                                        <option value=1>Drink</option>
+                                        <option value=2>Snack</option>
+                                    </select>
+                                </div>
+                            </div>
+
+
+                            <div class="col-sm-2">
+                                <div class="col-sm-2">
+                                    <select class="custom-select form-control" name="onSale" style="width: 10rem;">
+                                        <option>Select sale status</option>
+                                        <option value=true>On sale now</option>
+                                        <option value=false>Not on sale yet</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="form-group-row">
+                            <button type="submit" class="btn btn-success" name="submitNewItem">Submit</button>
+                            <button type="reset" class="btn btn-danger">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--
+    @{
+        if ((ViewBag.NewItem != null) && ((int)ViewBag.NewItem != 0))
+        {
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="card bg-success mb-3">
+                        <div class="card-header  bg-success text-white">
+                            The new item was added to the database.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+
+    }
+    -->
+</div>
 

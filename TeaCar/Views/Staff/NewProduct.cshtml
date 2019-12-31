@@ -3,12 +3,11 @@
     ViewData["Title"] = "NewProduct";
     Layout = "~/Views/Shared/StaffLayout.cshtml";
 }
-
+<h1>Add a new product</h1>
     <div class="container-fluid mt-1 px-1">
         <div class="row">
             <div class="col-sm-12">
-                <div class="car-border-primary mb-3">
-                    <div class="card-header bg-primary text-white">Add a new product</div>
+                <div class="card-border-primary mb-3">
                     <div class="card-body">
                         <form asp-controller="Staff" asp-action="CreateItem" method="post">
                             <div class="form-group row">

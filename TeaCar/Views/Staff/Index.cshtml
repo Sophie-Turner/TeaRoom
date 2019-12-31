@@ -5,4 +5,69 @@
 }
 
 <h1>Current orders</h1>
+<div class="row">
+    <div class="col-sm-2">
+        <h3>Time</h3>
+    </div>
+    <div class="col-sm-2">
+        <h3>Product</h3>
+    </div>
+    <div class="col-sm-2">
+        <h3>Quantity</h3>
+    </div>
+    <div class="col-sm-2">
+        <h3>Table</h3>
+    </div>
+    <div class="col-sm-2">
+        <h3 style="color:red">Cancel</h3>
+    </div>
+    <div class="col-sm-2">
+        <h3 style="color:green">Complete</h3>
+    </div>
 
+</div>
+
+<div class="row">
+    <div class="col-sm-2">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">15:15</li>
+            <li class="list-group-item">15:15</li>
+            <li class="list-group-item">15:20</li>
+        </ul>
+    </div>
+    <div class="col-sm-2">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Coffee</li>
+            <li class="list-group-item">Scone</li>
+            <li class="list-group-item">Tea</li>
+        </ul>
+    </div>
+    <div class="col-sm-2">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">1</li>
+            <li class="list-group-item">1</li>
+            <li class="list-group-item">2</li>
+        </ul>
+    </div>
+    <div class="col-sm-2">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">3</li>
+            <li class="list-group-item">3</li>
+            <li class="list-group-item">5</li>
+        </ul>
+    </div>
+    <div class="col-sm-2">
+        <ul class="list-group list-group-flush"> 
+            <li class="list-group-item"><a asp-controller="Staff" asp-action="CancelOrder">Cancel</a></li>
+            <li class="list-group-item"><a asp-controller="Staff" asp-action="CancelOrder">Cancel</a></li>
+            <li class="list-group-item"><a asp-controller="Staff" asp-action="CancelOrder">Cancel</a></li>
+        </ul>
+    </div>
+    <div class="col-sm-2">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item"><a asp-controller="Staff" asp-action="CompleteOrder">Complete</a></li>
+            <li class="list-group-item"><a asp-controller="Staff" asp-action="CompleteOrder">Complete</a></li>
+            <li class="list-group-item"><a asp-controller="Staff" asp-action="CompleteOrder">Complete</a></li>
+        </ul>
+    </div>
+</div>
