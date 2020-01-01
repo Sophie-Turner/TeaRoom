@@ -64,9 +64,14 @@ namespace TeaCar.Controllers
         {
             var rowsAffected = _context.Database.ExecuteSqlRaw(
                 "EXEC UpdateItem @itemId, @newItemName, @newItemInfo, @newOnSale, @newitemPrice, @newCatId",
-                
-                )
-                
+                new SqlParameter("@itemId", updateItem.itemId),
+                new SqlParameter("@newItemName", updateItem.newItemName.ToString()),
+                new SqlParameter("@newItemInfo", updateItem.newItemInfo.ToString()),
+                new SqlParameter("@newOnSale", updateItem.newOnSale),
+                new SqlParameter("@newItemPrice", updateItem.newItemPrice),
+                new SqlParameter("@newCatId", updateItem.newCatId));
+
+            ViewBag.UpdateItem = rowsAffected;
             return View("EditItem");
         }
     }

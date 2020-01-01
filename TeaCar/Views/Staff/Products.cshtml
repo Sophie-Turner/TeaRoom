@@ -9,50 +9,81 @@
 <h1>Products</h1>
 <div class="container-fluid" style="margin-top: 20px">
     <div class="row">
-        <div class="col-sm-12">
-            <a type="button" class="btn btn-primary" name="addNewItem" asp-controller="Staff" asp-action="NewProduct">
-                Add a new product
-            </a>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-sm-12">
-            <h5> </h5>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-sm-5"></div>
+        <div class="col-sm-4"></div>
         <div class="col-sm-2">
-            <select class="custom-select form-control" name="selectItem" asp-for="ItemId"
-                    asp-items="(IEnumerable<SelectListItem>)ViewBag.Items">
-            </select>
-        </div>
-        <div class="col-sm-5"></div>
-    </div>
-
-    <div class="row">
-        <div class="col-sm-4"></div>
-        <div class="col-sm-4">
-
-            <!--Picture of drink & info-->
-            <img class="card-img-top" src="~/Images/water.jpg" height="200" width="100" alt="Selected drink">
-            <div class="card-body">
-                <a class="card-text">Price & information about the selected drink...</a>
-            </div>
-
-        </div>
-        <div class="col-sm-4"></div>
-    </div>
-
-    <div class="row">
-        <div class="col-sm-12">
-            <a type="button" class="btn btn-primary" name="editItem" asp-controller="Staff" asp-action="EditProduct">
-                Edit this product
+            <a type="button" class="btn btn-primary" name="addNewItem" asp-controller="Staff" asp-action="NewProduct">
+                Add new product
             </a>
         </div>
+        <div class="col-sm-2">
+            <a type="button" class="btn btn-primary" name="editItem" asp-controller="Staff" asp-action="EditProduct">
+                Edit a product
+            </a>
+        </div>
+        <div class="col-sm-4"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <h5> </h5>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-2">
+                <h3>Name</h3>
+            </div>
+            <div class="col-sm-2">
+                <h3>Category</h3>
+            </div>
+            <div class="col-sm-4">
+                <h3>Information</h3>
+            </div>
+            <div class="col-sm-2">
+                <h3>Sale price</h3>
+            </div>
+            <div class="col-sm-2">
+                <h3>On sale now</h3>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-2">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Coffee</li>
+                    <li class="list-group-item">Rooibos</li>
+                    <li class="list-group-item">Tea</li>
+                </ul>
+            </div>
+            <div class="col-sm-2">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Drink</li>
+                    <li class="list-group-item">Drink</li>
+                    <li class="list-group-item">Drink</li>
+                </ul>
+            </div>
+            <div class="col-sm-4">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Blah blah blah blah</li>
+                    <li class="list-group-item">Yummu yum yummy yum</li>
+                    <li class="list-group-item">Drink this and enjoy it</li>
+                </ul>
+            </div>
+            <div class="col-sm-2">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">1.00</li>
+                    <li class="list-group-item">1.50</li>
+                    <li class="list-group-item">0.50</li>
+                </ul>
+            </div>
+            <div class="col-sm-2">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Yes</li>
+                    <li class="list-group-item">Yes</li>
+                    <li class="list-group-item">Yes</li>
+                </ul>
+            </div>
+        </div>
 
     </div>
-</div>
 
