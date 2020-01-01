@@ -25,24 +25,33 @@ namespace TeaCar.Controllers
         }
         public IActionResult Products()
         {
-            IEnumerable<SelectListItem> ItemList = (from eachItem in _context.Items.AsEnumerable()
-                                                      select new SelectListItem
-                                                      {
-                                                          Text = eachItem.ItemName,
-                                                          Value = eachItem.ItemId.ToString()
-                                                      }).ToList();
-            //Linq
-            ViewBag.Items = ItemList;
+            
             return View();
         }
         public IActionResult EditProduct()
         {
+
+            
+            //Linq
+            ViewBag.Items = ComboAllItems();
             return View();
         }
         public IActionResult NewProduct()
         {
             return View();
         }
+
+        public IEnumerable<SelectListItem> ComboAllItems()
+        {
+            IEnumerable<SelectListItem> ItemList = (from eachItem in _context.Items.AsEnumerable()
+                                                    select new SelectListItem
+                                                    {
+                                                        Text = eachItem.ItemName,
+                                                        Value = eachItem.ItemId.ToString()
+                                                    }).ToList();
+            return ItemList;
+        }
+
 
         [HttpPost]
         public IActionResult CreateItem(CreateNewItem createNewItem)
@@ -62,8 +71,10 @@ namespace TeaCar.Controllers
 
         public IActionResult EditItem(UpdateItem updateItem)
         {
+            
             var rowsAffected = _context.Database.ExecuteSqlRaw(
-                "EXEC UpdateItem @itemId, @newItemName, @newItemInfo, @newOnSale, @newitemPrice, @newCatId",
+            //Insert/update only returns integer, not other data.
+                "EXEC UpdateItem @itemId, @newItemName, @newItemInfo, @newOnSale, @newItemPrice, @newCatId",
                 new SqlParameter("@itemId", updateItem.itemId),
                 new SqlParameter("@newItemName", updateItem.newItemName.ToString()),
                 new SqlParameter("@newItemInfo", updateItem.newItemInfo.ToString()),
@@ -72,7 +83,7 @@ namespace TeaCar.Controllers
                 new SqlParameter("@newCatId", updateItem.newCatId));
 
             ViewBag.UpdateItem = rowsAffected;
-            return View("EditItem");
+            return View("EditProduct");
         }
     }
 }

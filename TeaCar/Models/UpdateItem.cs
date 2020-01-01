@@ -9,7 +9,6 @@ namespace TeaCar.Models
     {
         public int itemId { get; set; }
         public string newItemName { get; set; }
-
         public string newItemInfo { get; set; }
         public bool newOnSale { get; set; }
         public decimal newItemPrice { get; set; }
