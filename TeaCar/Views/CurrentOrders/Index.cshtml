@@ -1,0 +1,44 @@
+﻿@model IEnumerable<TeaCar.Models.CurrentOrders>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/StaffLayout.cshtml";
+}
+
+<h1>Current orders</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Table number
+            </th>
+            <th>
+                Item ordered
+            </th>
+            <th>
+                Quantity
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.tableNum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.itemName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.quantity)
+            </td>
+            <td>
+                <a asp-action="Delete" asp-route-id="@item.OrderTime">Cancel order</a> |
+                <a asp-action="Delete" asp-route-id="@item.OrderTime">Completed</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

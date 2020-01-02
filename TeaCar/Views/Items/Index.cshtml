@@ -1,0 +1,75 @@
+﻿@model IEnumerable<TeaCar.Models.Items>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/StaffLayout.cshtml";
+}
+
+<h1>Products</h1>
+
+<div class="row">
+    <div class="col-sm-4"></div>
+    <div class="col-sm-2">
+        <a type="button" class="btn btn-primary" name="addNewItem" asp-controller="Staff" asp-action="NewProduct">
+            Add new product
+        </a>
+    </div>
+    <div class="col-sm-2">
+        <a type="button" class="btn btn-primary" name="editItem" asp-controller="Staff" asp-action="EditProduct">
+            Edit a product
+        </a>
+    </div>
+    <div class="col-sm-4"></div>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Information
+            </th>
+            <th>
+                Picture file
+            </th>
+            <th>
+                Currently on sale
+            </th>
+            <th>
+                Sale price
+            </th>
+            <th>
+                Category
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ItemName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ItemInfo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ItemPicFile)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OnSale)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ItemPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cat.CatName)
+            </td>
+            <td>
+                <a asp-action="Details" asp-route-id="@item.ItemId">Details</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

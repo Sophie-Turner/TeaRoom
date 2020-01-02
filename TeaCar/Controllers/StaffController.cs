@@ -23,11 +23,6 @@ namespace TeaCar.Controllers
         {
             return View();
         }
-        public IActionResult Products()
-        {
-            
-            return View();
-        }
         public IActionResult EditProduct()
         {
 

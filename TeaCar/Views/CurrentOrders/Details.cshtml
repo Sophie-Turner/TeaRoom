@@ -1,0 +1,37 @@
+﻿@model TeaCar.Models.CurrentOrders
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/StaffLayout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>CurrentOrders</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.tableNum)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.tableNum)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.itemName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.itemName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.quantity)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.quantity)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.OrderTime">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using TeaCar.Models;
 
 namespace TeaCar.Models
 {
@@ -142,5 +143,7 @@ namespace TeaCar.Models
         }
 
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
+
+        public DbSet<TeaCar.Models.CurrentOrders> CurrentOrders { get; set; }
     }
 }

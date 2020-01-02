@@ -1,0 +1,55 @@
+﻿@model TeaCar.Models.Items
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/StaffLayout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div style="text-align:left">
+    <h4>Items</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Name
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ItemName)
+        </dd>
+        <dt class = "col-sm-2">
+            Information
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ItemInfo)
+        </dd>
+        <dt class = "col-sm-2">
+            Image file
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ItemPicFile)
+        </dd>
+        <dt class = "col-sm-2">
+            Currently on sale
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.OnSale)
+        </dd>
+        <dt class = "col-sm-2">
+            Sale price
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ItemPrice)
+        </dd>
+        <dt class = "col-sm-2">
+            Category
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Cat.CatName)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-controller="Staff" asp-action="EditProduct">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
