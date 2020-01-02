@@ -1,11 +1,13 @@
 CREATE VIEW CurrentOrders AS
-SELECT orderTime, tableNum, itemName
---Do an join through composite table to get items in order--
-FROM Orders
-INNER JOIN ItemOrder 
-ON Orders.orderId = ItemOrder.orderId
-INNER JOIN Item
-ON ItemOrder.itemId = Item.itemId
-WHERE completed = 0
-ORDER BY orderTime;
 
+SELECT orderTime, tableNum, itemName, quantity
+FROM Orders
+
+INNER JOIN ItemOrders
+ON Orders.orderId = ItemOrders.orderId
+
+INNER JOIN Items
+ON ItemOrders.itemId = Items.itemId
+
+WHERE completed = 0
+GROUP BY tableNum, orderTime, itemName, quantity;
