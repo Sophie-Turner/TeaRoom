@@ -1,0 +1,31 @@
+﻿@model TeaCar.Models.IncompleteOrders
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/CustomerLayout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>IncompleteOrders</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.quantity)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.quantity)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.itemPrice)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.itemPrice)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.itemName">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

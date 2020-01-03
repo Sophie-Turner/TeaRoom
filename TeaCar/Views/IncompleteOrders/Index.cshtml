@@ -1,0 +1,75 @@
+﻿@model IEnumerable<TeaCar.Models.IncompleteOrders>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/CustomerLayout.cshtml";
+}
+
+<h1>Confirm order</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Item
+            </th>
+            <th>
+                Quantity
+            </th>
+            <th>
+                Price
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            decimal total = 0;
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.itemName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.quantity)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.itemPrice)
+                    </td>
+                    <td>
+                        <a asp-action="Delete" asp-route-id="@item.itemName">Remove</a>
+                    </td>
+                </tr>
+                total = total + (item.quantity * item.itemPrice);
+            }
+         }
+    </tbody>
+</table>
+
+<div class="row">
+    <div class=" col-sm-12">
+        <h5>Total: £@total</h5>
+    </div>
+</div>
+
+<form asp-controller="" asp-action="" method="post">
+    <!--After this method's functionality, have it display message, then send customer back to Index. See example message below-->
+
+    <div class="form-group-row">
+        <label for="table" class="col-sm-2 col-form-label">Table number</label>
+        <select class="custom-select col-sm-2" name="table">
+            <option value="1">1</option>
+            <option value="1">2</option>
+            <option value="1">3</option>
+            <option value="1">4</option>
+            <option value="1">5</option>
+            <option value="1">6</option>
+        </select>
+    </div>
+
+    <div class="form-group-row">
+        <button type="submit" class="btn btn-success" name="completeOrder">Complete</button>
+        <button type="reset" class="btn btn-danger">Cancel</button>
+    </div>
+</form>

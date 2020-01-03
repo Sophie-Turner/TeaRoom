@@ -18,7 +18,6 @@ namespace TeaCar.Controllers
             //Constructor with database class.
         {
             _context = context;
-            //Dependency injection.
         }
         public IActionResult Index()
         {            

@@ -9,90 +9,85 @@ using TeaCar.Models;
 
 namespace TeaCar.Controllers
 {
-    public class ItemsController : Controller
+    public class IncompleteOrdersController : Controller
     {
         private readonly ISAD251_STurnerContext _context;
 
-        public ItemsController(ISAD251_STurnerContext context)
+        public IncompleteOrdersController(ISAD251_STurnerContext context)
         {
             _context = context;
         }
 
-        // GET: Items
+        // GET: IncompleteOrders
         public async Task<IActionResult> Index()
         {
-            var iSAD251_STurnerContext = _context.Items.Include(i => i.Cat);
-            return View(await iSAD251_STurnerContext.ToListAsync());
+            return View(await _context.IncompleteOrders.ToListAsync());
         }
 
-        // GET: Items/Details
-        public async Task<IActionResult> Details(int? id)
+        // GET: IncompleteOrders/Details/5
+        public async Task<IActionResult> Details(string id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var items = await _context.Items
-                .Include(i => i.Cat)
-                .FirstOrDefaultAsync(m => m.ItemId == id);
-            if (items == null)
+            var incompleteOrders = await _context.IncompleteOrders
+                .FirstOrDefaultAsync(m => m.itemName == id);
+            if (incompleteOrders == null)
             {
                 return NotFound();
             }
 
-            return View(items);
+            return View(incompleteOrders);
         }
 
-        // GET: Items/Create
+        // GET: IncompleteOrders/Create
         public IActionResult Create()
         {
-            ViewData["CatId"] = new SelectList(_context.Categories, "CatId", "CatName");
             return View();
         }
 
-        // POST: Items/Create
+        // POST: IncompleteOrders/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ItemId,ItemName,ItemInfo,ItemPicFile,OnSale,ItemPrice,CatId")] Items items)
+        public async Task<IActionResult> Create([Bind("itemName,quantity,itemPrice")] IncompleteOrders incompleteOrders)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(items);
+                _context.Add(incompleteOrders);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CatId"] = new SelectList(_context.Categories, "CatId", "CatName", items.CatId);
-            return View(items);
+            return View(incompleteOrders);
         }
 
-        // GET: Items/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        // GET: IncompleteOrders/Edit/5
+        public async Task<IActionResult> Edit(string id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var items = await _context.Items.FindAsync(id);
-            if (items == null)
+            var incompleteOrders = await _context.IncompleteOrders.FindAsync(id);
+            if (incompleteOrders == null)
             {
                 return NotFound();
             }
-            ViewData["CatId"] = new SelectList(_context.Categories, "CatId", "CatName", items.CatId);
-            return View(items);
+            return View(incompleteOrders);
         }
 
-        // POST: Items/Edit/5
+        // POST: IncompleteOrders/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ItemId,ItemName,ItemInfo,ItemPicFile,OnSale,ItemPrice,CatId")] Items items)
+        public async Task<IActionResult> Edit(string id, [Bind("itemName,quantity,itemPrice")] IncompleteOrders incompleteOrders)
         {
-            if (id != items.ItemId)
+            if (id != incompleteOrders.itemName)
             {
                 return NotFound();
             }
@@ -101,12 +96,12 @@ namespace TeaCar.Controllers
             {
                 try
                 {
-                    _context.Update(items);
+                    _context.Update(incompleteOrders);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ItemsExists(items.ItemId))
+                    if (!IncompleteOrdersExists(incompleteOrders.itemName))
                     {
                         return NotFound();
                     }
@@ -117,43 +112,41 @@ namespace TeaCar.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CatId"] = new SelectList(_context.Categories, "CatId", "CatName", items.CatId);
-            return View(items);
+            return View(incompleteOrders);
         }
 
-        // GET: Items/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        // GET: IncompleteOrders/Delete/5
+        public async Task<IActionResult> Delete(string id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var items = await _context.Items
-                .Include(i => i.Cat)
-                .FirstOrDefaultAsync(m => m.ItemId == id);
-            if (items == null)
+            var incompleteOrders = await _context.IncompleteOrders
+                .FirstOrDefaultAsync(m => m.itemName == id);
+            if (incompleteOrders == null)
             {
                 return NotFound();
             }
 
-            return View(items);
+            return View(incompleteOrders);
         }
 
-        // POST: Items/Delete/5
+        // POST: IncompleteOrders/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> DeleteConfirmed(string id)
         {
-            var items = await _context.Items.FindAsync(id);
-            _context.Items.Remove(items);
+            var incompleteOrders = await _context.IncompleteOrders.FindAsync(id);
+            _context.IncompleteOrders.Remove(incompleteOrders);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool ItemsExists(int id)
+        private bool IncompleteOrdersExists(string id)
         {
-            return _context.Items.Any(e => e.ItemId == id);
+            return _context.IncompleteOrders.Any(e => e.itemName == id);
         }
     }
 }

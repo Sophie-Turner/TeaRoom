@@ -9,23 +9,22 @@ using TeaCar.Models;
 
 namespace TeaCar.Controllers
 {
-    public class ItemsController : Controller
+    public class CustomerMenusController : Controller
     {
         private readonly ISAD251_STurnerContext _context;
 
-        public ItemsController(ISAD251_STurnerContext context)
+        public CustomerMenusController(ISAD251_STurnerContext context)
         {
             _context = context;
         }
 
-        // GET: Items
+        // GET: CustomerMenus
         public async Task<IActionResult> Index()
         {
-            var iSAD251_STurnerContext = _context.Items.Include(i => i.Cat);
-            return View(await iSAD251_STurnerContext.ToListAsync());
+            return View(await _context.CustomerMenu.ToListAsync());
         }
 
-        // GET: Items/Details
+        // GET: CustomerMenus/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -33,42 +32,39 @@ namespace TeaCar.Controllers
                 return NotFound();
             }
 
-            var items = await _context.Items
-                .Include(i => i.Cat)
-                .FirstOrDefaultAsync(m => m.ItemId == id);
-            if (items == null)
+            var customerMenu = await _context.CustomerMenu
+                .FirstOrDefaultAsync(m => m.itemId == id);
+            if (customerMenu == null)
             {
                 return NotFound();
             }
 
-            return View(items);
+            return View(customerMenu);
         }
 
-        // GET: Items/Create
+        // GET: CustomerMenus/Create
         public IActionResult Create()
         {
-            ViewData["CatId"] = new SelectList(_context.Categories, "CatId", "CatName");
             return View();
         }
 
-        // POST: Items/Create
+        // POST: CustomerMenus/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ItemId,ItemName,ItemInfo,ItemPicFile,OnSale,ItemPrice,CatId")] Items items)
+        public async Task<IActionResult> Create([Bind("itemId,itemName,itemInfo,itemPrice,catId")] CustomerMenu customerMenu)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(items);
+                _context.Add(customerMenu);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CatId"] = new SelectList(_context.Categories, "CatId", "CatName", items.CatId);
-            return View(items);
+            return View(customerMenu);
         }
 
-        // GET: Items/Edit/5
+        // GET: CustomerMenus/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -76,23 +72,22 @@ namespace TeaCar.Controllers
                 return NotFound();
             }
 
-            var items = await _context.Items.FindAsync(id);
-            if (items == null)
+            var customerMenu = await _context.CustomerMenu.FindAsync(id);
+            if (customerMenu == null)
             {
                 return NotFound();
             }
-            ViewData["CatId"] = new SelectList(_context.Categories, "CatId", "CatName", items.CatId);
-            return View(items);
+            return View(customerMenu);
         }
 
-        // POST: Items/Edit/5
+        // POST: CustomerMenus/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ItemId,ItemName,ItemInfo,ItemPicFile,OnSale,ItemPrice,CatId")] Items items)
+        public async Task<IActionResult> Edit(int id, [Bind("itemId,itemName,itemInfo,itemPrice,catId")] CustomerMenu customerMenu)
         {
-            if (id != items.ItemId)
+            if (id != customerMenu.itemId)
             {
                 return NotFound();
             }
@@ -101,12 +96,12 @@ namespace TeaCar.Controllers
             {
                 try
                 {
-                    _context.Update(items);
+                    _context.Update(customerMenu);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ItemsExists(items.ItemId))
+                    if (!CustomerMenuExists(customerMenu.itemId))
                     {
                         return NotFound();
                     }
@@ -117,11 +112,10 @@ namespace TeaCar.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CatId"] = new SelectList(_context.Categories, "CatId", "CatName", items.CatId);
-            return View(items);
+            return View(customerMenu);
         }
 
-        // GET: Items/Delete/5
+        // GET: CustomerMenus/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -129,31 +123,30 @@ namespace TeaCar.Controllers
                 return NotFound();
             }
 
-            var items = await _context.Items
-                .Include(i => i.Cat)
-                .FirstOrDefaultAsync(m => m.ItemId == id);
-            if (items == null)
+            var customerMenu = await _context.CustomerMenu
+                .FirstOrDefaultAsync(m => m.itemId == id);
+            if (customerMenu == null)
             {
                 return NotFound();
             }
 
-            return View(items);
+            return View(customerMenu);
         }
 
-        // POST: Items/Delete/5
+        // POST: CustomerMenus/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var items = await _context.Items.FindAsync(id);
-            _context.Items.Remove(items);
+            var customerMenu = await _context.CustomerMenu.FindAsync(id);
+            _context.CustomerMenu.Remove(customerMenu);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool ItemsExists(int id)
+        private bool CustomerMenuExists(int id)
         {
-            return _context.Items.Any(e => e.ItemId == id);
+            return _context.CustomerMenu.Any(e => e.itemId == id);
         }
     }
 }

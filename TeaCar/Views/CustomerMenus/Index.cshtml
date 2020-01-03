@@ -1,0 +1,107 @@
+﻿@model IEnumerable<TeaCar.Models.CustomerMenu>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/CustomerLayout.cshtml";
+}
+
+<h1>Menu</h1>
+<div class="container-fluid" style="margin-top: 20px">
+
+    <div class="row">
+
+        <div class="col-sm-4">
+            <h2>Drinks</h2>
+        </div>
+
+        <div class="col-sm-4">
+            <h2>Snacks</h2>
+        </div>
+
+        <div class="col-sm-4">
+            <h2>My order</h2>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-sm-4">
+            <table class="table">
+                <tbody>
+                    @{
+                        foreach (var item in Model)
+                        {
+                            if (item.catId == 1)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.itemName)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.itemInfo)
+                                    </td>
+                                    <td>
+                                        <a asp-action="" asp-route-id="@item.itemName">Add to order</a>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <div class="col-sm-4">
+            <table class="table">
+                <tbody>
+                    @{
+                        foreach (var item in Model)
+                        {
+                            if (item.catId != 1)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.itemName)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.itemInfo)
+                                    </td>
+                                    <td>
+                                        <a asp-action="" asp-route-id="@item.itemName">Add to order</a>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <div class="col-sm-4">
+
+            @{
+                decimal total = 0;
+
+
+            }
+
+            <br />
+            <h5>Total: £@total</h5>
+            <br />
+
+            <form asp-controller="" asp-action="" method="post">
+                <div class="form-group-row">
+                    <a type="submit" class="btn btn-success" name="completeOrder" asp-controller="IncompleteOrders" asp-action="Index">
+                        Complete order
+                    </a>
+                    <button type="reset" class="btn btn-danger">Clear</button>
+                </div>
+            </form>
+
+        </div>
+
+    </div>
+
+
+</div>
+

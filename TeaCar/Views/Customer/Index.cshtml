@@ -6,6 +6,7 @@
 
 @model TeaCar.Models.Items
 
+
 <h1>Menu</h1>
 <div class="container-fluid" style="margin-top: 20px">
     <div class="row">
@@ -84,7 +85,7 @@
         <div class="col-sm-4">
             <form asp-controller="" asp-action="" method="post">
                 <div class="form-group-row">
-                    <a type="submit" class="btn btn-success" name="completeOrder" asp-controller="Customer" asp-action="OrderFinalisation">
+                    <a type="submit" class="btn btn-success" name="completeOrder" asp-controller="IncompleteOrders" asp-action="Index">
                      Complete order</a>
                     <button type="reset" class="btn btn-danger">Clear</button>
                 </div>

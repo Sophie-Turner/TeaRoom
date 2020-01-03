@@ -145,5 +145,12 @@ namespace TeaCar.Models
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
 
         public DbSet<TeaCar.Models.CurrentOrders> CurrentOrders { get; set; }
+
+        public DbSet<TeaCar.Models.IncompleteOrders> IncompleteOrders { get; set; }
+
+        public DbSet<TeaCar.Models.CustomerMenu> CustomerMenu { get; set; }
+
+
+        
     }
 }
