@@ -1,0 +1,11 @@
+
+
+0. on clear & cancel buttons delete itemorder and order where table = 0
+1. create order if one doesn't exist where table = 0
+2. create itemorder when add to order is clicked
+   if none exists for this item.
+   Also update view page.
+3. update quantity
+4. update price
+5. update table number on completion
+0. on clear & cancel buttons delete itemorder and order where table = 0
