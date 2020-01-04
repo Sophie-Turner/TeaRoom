@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using TeaCar.Models;
+using Microsoft.Data.SqlClient;
 
 namespace TeaCar.Controllers
 {
@@ -17,6 +18,23 @@ namespace TeaCar.Controllers
         {
             _context = context;
         }
+
+        public IActionResult Clear(CancelIncompleteOrder cancelIncompleteOrder)
+        {
+            var rowsAffected = _context.Database.ExecuteSqlRaw("EXEC CancelIncompleteOrder");
+            ViewBag.DeletedIcompleteOrder = rowsAffected;
+            return RedirectToAction(nameof(Index));
+        }
+
+        [HttpPost]
+        public IActionResult AddItemToOrder(AddToOrder addToOrder)
+        {
+            var rowsAffected = _context.Database.ExecuteSqlRaw("EXEC AddToOrder @itemId",
+                new SqlParameter("@itemId", addToOrder.itemId));
+            ViewBag.NewItemOrder = rowsAffected;
+            return RedirectToAction(nameof(Index));
+        }
+        
 
         // GET: CustomerMenus
         public async Task<IActionResult> Index()

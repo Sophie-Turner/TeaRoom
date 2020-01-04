@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using TeaCar.Models;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
+
 namespace TeaCar.Controllers
 {
     public class CustomerController : Controller
@@ -43,12 +44,6 @@ namespace TeaCar.Controllers
 
             return View();
         }
-
-        //public IActionResult AddToOrder(Items addedItem)
-        //{
-
-        //}
-
 
         public IActionResult OrderFinalisation()
         {
