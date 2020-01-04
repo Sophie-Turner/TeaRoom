@@ -1,11 +1,15 @@
 
-
-0. on clear & cancel buttons delete itemorder and order where table = 0
-1. create order if one doesn't exist where table = 0
+0. DONE on clear & cancel buttons delete itemorder and order where table = 0
+1. create order if one doesn't exist where table = 0 (when?)
+2. In asp, get order Id
 2. create itemorder when add to order is clicked
    if none exists for this item.
+   Update items in itemorder.
    Also update view page.
 3. update quantity
 4. update price
 5. update table number on completion
-0. on clear & cancel buttons delete itemorder and order where table = 0
+0. DONE on clear & cancel buttons delete itemorder and order where table = 0
+also delete them if order is not completed
+
+   
