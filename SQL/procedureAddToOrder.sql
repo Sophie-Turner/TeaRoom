@@ -1,3 +1,4 @@
+
 CREATE PROCEDURE AddToOrder (
     @itemId AS INT
 ) AS
@@ -34,8 +35,15 @@ ELSE
         INSERT INTO ItemOrders(orderId, itemId, quantity)
         VALUES (@thisOrderId, @itemId, 1);
     END;
-
-
+UPDATE Orders
+    SET Orders.totalPrice = Orders.totalPrice + (ItemOrders.quantity * Items.itemPrice)
+    FROM Orders
+    INNER JOIN ItemOrders
+        ON Orders.orderId = ItemOrders.orderId
+    INNER JOIN Items
+        ON ItemOrders.itemId = Items.itemId
+    WHERE ItemOrders.orderId = @thisOrderId
+    AND ItemOrders.itemId = @itemId; 
 
 
 
