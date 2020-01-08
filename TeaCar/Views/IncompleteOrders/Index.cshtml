@@ -25,6 +25,7 @@
     <tbody>
         @{
             decimal total = 0;
+            String showTotal = "0.00";
             foreach (var item in Model)
             {
                 <tr>
@@ -42,34 +43,37 @@
                     </td>
                 </tr>
                 total = total + (item.quantity * item.itemPrice);
+                showTotal = total.ToString("n2");
             }
-         }
+        }
     </tbody>
 </table>
 
 <div class="row">
     <div class=" col-sm-12">
-        <h5>Total: £@total</h5>
+        <h5>Total: £@showTotal</h5>
     </div>
 </div>
 
-<form asp-controller="" asp-action="" method="post">
-    <!--After this method's functionality, have it display message, then send customer back to Index. See example message below-->
+<form asp-controller="IncompleteOrders" asp-action="SubmitOrder" method="post">
 
     <div class="form-group-row">
         <label for="table" class="col-sm-2 col-form-label">Table number</label>
-        <select class="custom-select col-sm-2" name="table">
+        <select class="custom-select col-sm-2" name="tableNum">
+            <option disabled selected>Select table</option>
             <option value="1">1</option>
-            <option value="1">2</option>
-            <option value="1">3</option>
-            <option value="1">4</option>
-            <option value="1">5</option>
-            <option value="1">6</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
         </select>
     </div>
-
+    <br />
     <div class="form-group-row">
         <button type="submit" class="btn btn-success" name="completeOrder">Complete</button>
-        <a class="btn btn-danger" asp-controller="CustomerMenus" asp-action="Clear">Cancel</a>
     </div>
 </form>
+<br />
+<a class="btn btn-danger" asp-controller="CustomerMenus" asp-action="Clear">Clear</a>
+

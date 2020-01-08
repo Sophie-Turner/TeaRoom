@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using TeaCar.Models;
+using Microsoft.Data.SqlClient;
 
 namespace TeaCar.Controllers
 {
@@ -16,6 +17,20 @@ namespace TeaCar.Controllers
         public CurrentOrdersController(ISAD251_STurnerContext context)
         {
             _context = context;
+        }
+
+        public IActionResult CancelOrder(CancelCompleteOrder cancelCompleteOrder)
+        {
+            _context.Database.ExecuteSqlRaw("EXEC CancelCompleteOrder @orderTime",
+                new SqlParameter("@orderTime", cancelCompleteOrder.orderTime));
+            return RedirectToAction(nameof(Index));
+        }
+
+        public IActionResult CompletedOrder(UpdateCompleted updateCompleted)
+        {
+            _context.Database.ExecuteSqlRaw("EXEC UpdateCompleted @orderTime",
+                new SqlParameter("@orderTime", updateCompleted.orderTime));
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: CurrentOrders

@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using TeaCar.Models;
+using Microsoft.Data.SqlClient;
 
 namespace TeaCar.Controllers
 {
@@ -16,6 +17,15 @@ namespace TeaCar.Controllers
         public IncompleteOrdersController(ISAD251_STurnerContext context)
         {
             _context = context;
+        }
+
+        [HttpPost]
+        public IActionResult SubmitOrder(UpdateTableNum updateTableNum)
+        {
+            var rowsAffected = _context.Database.ExecuteSqlRaw("EXEC UpdateTableNum @tableNum",
+                new SqlParameter("@tableNum", updateTableNum.tableNum));
+            ViewBag.submittedOrder = rowsAffected;
+            return RedirectToAction(nameof(TeaCar.Controllers.CustomerMenusController.Index));
         }
 
         // GET: IncompleteOrders

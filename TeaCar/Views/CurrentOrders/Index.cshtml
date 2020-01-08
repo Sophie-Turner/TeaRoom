@@ -6,45 +6,50 @@
 }
 
 <h1>Current orders</h1>
+<form asp-controller="CurrentOrders" asp-action="CompletedOrder" method="post">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Order time
+                </th>
+                <th>
+                    Table number
+                </th>
+                <th>
+                    Item ordered
+                </th>
+                <th>
+                    Quantity
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                Order time
-            </th>
-            <th>
-                Table number
-            </th>
-            <th>
-                Item ordered
-            </th>
-            <th>
-                Quantity
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.OrderTime)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.tableNum)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.itemName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.quantity)
-            </td>
-            <td>
-                <a asp-action="Delete" asp-route-id="@item.OrderTime">Cancel order</a> |
-                <a asp-action="Delete" asp-route-id="@item.OrderTime">Completed</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td name="orderTime">
+                        @Html.DisplayFor(modelItem => item.OrderTime)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.tableNum)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.itemName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.quantity)
+                    </td>
+                    <td>yui
+                        <!--This won't work because every table row has a thing called orderTime. There needs to just be one.-->
+                        <a class="btn btn-danger" asp-controller="CurrentOrders" asp-action="CancelOrder">Cancel order</a>
+                        <button type="submit" class="btn btn-success">Completed</button>
+
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</form>

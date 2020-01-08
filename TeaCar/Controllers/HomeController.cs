@@ -6,20 +6,22 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using TeaCar.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace TeaCar.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly ISAD251_STurnerContext _context;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ISAD251_STurnerContext context)
         {
-            _logger = logger;
+            _context = context;
         }
 
         public IActionResult Index()
         {
+            _context.Database.ExecuteSqlRaw("EXEC CancelIncompleteOrder");
             return View();
         }
 

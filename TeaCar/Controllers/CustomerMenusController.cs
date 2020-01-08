@@ -22,7 +22,7 @@ namespace TeaCar.Controllers
         public IActionResult Clear(CancelIncompleteOrder cancelIncompleteOrder)
         {
             var rowsAffected = _context.Database.ExecuteSqlRaw("EXEC CancelIncompleteOrder");
-            ViewBag.DeletedIcompleteOrder = rowsAffected;
+            ViewBag.DeletedIncompleteOrder = rowsAffected;
             return RedirectToAction(nameof(Index));
         }
 
