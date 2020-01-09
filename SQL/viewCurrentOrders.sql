@@ -1,6 +1,6 @@
 CREATE VIEW CurrentOrders AS
 
-SELECT orderTime, tableNum, itemName, quantity
+SELECT Orders.orderId, orderTime, tableNum, itemName, quantity
 FROM Orders
 
 INNER JOIN ItemOrders
@@ -10,4 +10,5 @@ INNER JOIN Items
 ON ItemOrders.itemId = Items.itemId
 
 WHERE completed = 0
-GROUP BY tableNum, orderTime, itemName, quantity;
+AND tableNum != 0
+GROUP BY Orders.orderId, tableNum, orderTime, itemName, quantity;

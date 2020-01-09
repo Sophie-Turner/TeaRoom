@@ -1,7 +1,6 @@
 CREATE PROCEDURE UpdateCompleted(
-    @orderTime AS DATETIME
+    @orderId AS INT
 ) AS
  UPDATE Orders
  SET completed = 1
- WHERE orderTIme = @orderTime;
- 
+ WHERE Orders.orderId = @orderId;

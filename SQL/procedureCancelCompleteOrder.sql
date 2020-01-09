@@ -1,12 +1,11 @@
-
 CREATE PROCEDURE CancelCompleteOrder(
-    @orderTIme AS DATETIME
+    @orderId AS INT
 ) AS
 DELETE FROM ItemOrders 
 FROM ItemOrders
 INNER JOIN Orders
 ON ItemOrders.orderId = Orders.orderId
-WHERE orderTime = @orderTime;
+WHERE ItemOrders.orderId = @orderId;
 
 DELETE FROM Orders
-WHERE orderTime = @orderTIme;
+WHERE Orders.orderId = @orderId;
