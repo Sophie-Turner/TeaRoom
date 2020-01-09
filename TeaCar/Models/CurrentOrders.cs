@@ -9,8 +9,9 @@ namespace TeaCar.Models
     public class CurrentOrders
     {
         [Key]
-        public DateTime OrderTime { get; set; }
-        
+        public DateTime orderTime { get; set; }
+
+        public int orderId { get; set; }
         public int tableNum { get; set; }
         public string itemName { get; set; }
         public int quantity { get; set; }

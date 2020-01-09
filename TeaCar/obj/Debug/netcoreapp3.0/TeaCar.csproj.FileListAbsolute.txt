@@ -181,11 +181,6 @@ C:\Users\pipin\Documents\Isad251_cw\TeaCar\obj\Debug\netcoreapp3.0\Razor\Views\I
 C:\Users\pipin\Documents\Isad251_cw\TeaCar\obj\Debug\netcoreapp3.0\Razor\Views\ItemOrders\Details.cshtml.g.cs
 C:\Users\pipin\Documents\Isad251_cw\TeaCar\obj\Debug\netcoreapp3.0\Razor\Views\ItemOrders\Edit.cshtml.g.cs
 C:\Users\pipin\Documents\Isad251_cw\TeaCar\obj\Debug\netcoreapp3.0\Razor\Views\ItemOrders\Index.cshtml.g.cs
-C:\Users\pipin\Documents\Isad251_cw\TeaCar\obj\Debug\netcoreapp3.0\Razor\Views\CurrentOrders\Create.cshtml.g.cs
-C:\Users\pipin\Documents\Isad251_cw\TeaCar\obj\Debug\netcoreapp3.0\Razor\Views\CurrentOrders\Delete.cshtml.g.cs
-C:\Users\pipin\Documents\Isad251_cw\TeaCar\obj\Debug\netcoreapp3.0\Razor\Views\CurrentOrders\Details.cshtml.g.cs
-C:\Users\pipin\Documents\Isad251_cw\TeaCar\obj\Debug\netcoreapp3.0\Razor\Views\CurrentOrders\Edit.cshtml.g.cs
-C:\Users\pipin\Documents\Isad251_cw\TeaCar\obj\Debug\netcoreapp3.0\Razor\Views\CurrentOrders\Index.cshtml.g.cs
 C:\Users\pipin\Documents\Isad251_cw\TeaCar\obj\Debug\netcoreapp3.0\Razor\Views\IncompleteOrders\Create.cshtml.g.cs
 C:\Users\pipin\Documents\Isad251_cw\TeaCar\obj\Debug\netcoreapp3.0\Razor\Views\IncompleteOrders\Delete.cshtml.g.cs
 C:\Users\pipin\Documents\Isad251_cw\TeaCar\obj\Debug\netcoreapp3.0\Razor\Views\IncompleteOrders\Details.cshtml.g.cs
@@ -196,4 +191,8 @@ C:\Users\pipin\Documents\Isad251_cw\TeaCar\obj\Debug\netcoreapp3.0\Razor\Views\C
 C:\Users\pipin\Documents\Isad251_cw\TeaCar\obj\Debug\netcoreapp3.0\Razor\Views\CustomerMenus\Details.cshtml.g.cs
 C:\Users\pipin\Documents\Isad251_cw\TeaCar\obj\Debug\netcoreapp3.0\Razor\Views\CustomerMenus\Edit.cshtml.g.cs
 C:\Users\pipin\Documents\Isad251_cw\TeaCar\obj\Debug\netcoreapp3.0\Razor\Views\CustomerMenus\Index.cshtml.g.cs
-C:\Users\pipin\Documents\Isad251_cw\TeaCar\obj\Debug\netcoreapp3.0\TeaCar.csprojAssemblyReference.cache
+C:\Users\pipin\Documents\Isad251_cw\TeaCar\obj\Debug\netcoreapp3.0\Razor\Views\CurrentOrders\Create.cshtml.g.cs
+C:\Users\pipin\Documents\Isad251_cw\TeaCar\obj\Debug\netcoreapp3.0\Razor\Views\CurrentOrders\Delete.cshtml.g.cs
+C:\Users\pipin\Documents\Isad251_cw\TeaCar\obj\Debug\netcoreapp3.0\Razor\Views\CurrentOrders\Details.cshtml.g.cs
+C:\Users\pipin\Documents\Isad251_cw\TeaCar\obj\Debug\netcoreapp3.0\Razor\Views\CurrentOrders\Edit.cshtml.g.cs
+C:\Users\pipin\Documents\Isad251_cw\TeaCar\obj\Debug\netcoreapp3.0\Razor\Views\CurrentOrders\Index.cshtml.g.cs

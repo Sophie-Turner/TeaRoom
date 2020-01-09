@@ -62,6 +62,7 @@ namespace TeaCar.Controllers
             return View("NewProduct"); //Stay on the same page.
         }
 
+
         [HttpPost]
 
         public IActionResult EditItem(UpdateItem updateItem)

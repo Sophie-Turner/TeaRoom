@@ -4,9 +4,7 @@
 
 <div class="text-center">
     <h1 class="display-4">Welcome to the Puffing Express Tea Car</h1>
-    <img src="~/Images/Logo.png" alt="Logo" width="200" height="200" />
-    <p>Please note that a proper login page is not required for this project.</p>
-    <p>For ease of use, and for demonstration purposes, both customer and staff areas can be accessed from this home page.</p>
+    <img src="~/Images/Logo.png" alt="Logo" width="150" height="150" />
 </div>
 <div class="container-fluid" style="margin-top: 20px">
     <div class="row">
@@ -14,16 +12,56 @@
         <div class="col-sm-3" style="width: 18rem;">
             <img class="card-img-top" src="~/Images/rooibos.jpg" height="200" width="100" alt="Cup of black tea">
             <div class="card-body">
-                <a class="card-text" asp-controller="CustomerMenus" asp-action="Index">Customer area</a>
+                <a class="card-text btn btn-primary" asp-controller="CustomerMenus" asp-action="Index">Customer area</a>
             </div>
         </div>
         <div class="col-sm-2"></div>
         <div class="col-sm-3" style="width: 18rem;">
             <img class="card-img-top" src="~/Images/notepad.jpg" height="200" width="100" alt="Notepad and pen">
             <div class="card-body">
-                <a class="card-text" asp-controller="CurrentOrders" asp-action="Index">Staff area</a>
+                <a class="card-text btn btn-primary" asp-controller="CurrentOrders" asp-action="Index">Staff area</a>
             </div>
         </div>
         <div class="col-sm-2"></div>
     </div>
 </div>
+
+        <div>
+            
+            @{/*Get this working and put it in the controller.
+                string APIFirstHalf = "https://www.google.com/maps/embed/v1/place?q=place_id:";
+                string APILastHalf = "&key=AIzaSyChPrRZBGGB8zkRWxRmGx9_3oXzxjr67xE";
+                string[] locationId = new string[]
+                {
+            "ChIJ5xpEZ9EMZUgRfaV9YsnjzOk", "ChIJReDxF9YMZUgRkcGS4CSLDSY", "ChIJUzGCCT1zZUgR9pX-QCDnDW0", "ChIJ6x7GGmJzZUgRO1fnB8gn780"
+            };
+                string fullString;
+                int locationIndex;
+                int forever = 1;
+                var startTimeSpan = TimeSpan.Zero;
+                var periodTimeSpan = TimeSpan.FromSeconds(3);
+
+
+                var timer = new System.Threading.Timer((e) =>
+                {
+                    while (forever != 1)
+                    {
+                        for (locationIndex = 0; locationIndex < 4; locationIndex++)
+                        {
+                            fullString = APIFirstHalf + locationId[locationIndex] + APILastHalf;
+
+                            
+
+                        < iframe width = "600" height = "450" frameborder = "0" style = "border:0"
+                            src = fullString allowfullscreen ></ iframe >
+                        }
+
+
+
+                    };
+
+                }, null, startTimeSpan, periodTimeSpan);
+                */
+            }
+        </div>
+

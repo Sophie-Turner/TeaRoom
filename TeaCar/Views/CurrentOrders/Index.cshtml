@@ -6,50 +6,58 @@
 }
 
 <h1>Current orders</h1>
-<form asp-controller="CurrentOrders" asp-action="CompletedOrder" method="post">
-    <table class="table">
-        <thead>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Order number
+            </th>
+            <th>
+                Order time
+            </th>
+            <th>
+                Table number
+            </th>
+            <th>
+                Item ordered
+            </th>
+            <th>
+                Quantity
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model)
+        {
             <tr>
-                <th>
-                    Order time
-                </th>
-                <th>
-                    Table number
-                </th>
-                <th>
-                    Item ordered
-                </th>
-                <th>
-                    Quantity
-                </th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
+                <td>
+                    @Html.DisplayFor(modelItem => item.orderId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.orderTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.tableNum)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.itemName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.quantity)
+                </td>
+                <td>
+                    <form asp-controller="CurrentOrders" asp-action="CompletedOrder" method="post">
+                        <div class="form-group-row">
+                            <input type="hidden" name="orderId" value="@item.orderId" />
+                        </div>
 
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td name="orderTime">
-                        @Html.DisplayFor(modelItem => item.OrderTime)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.tableNum)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.itemName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.quantity)
-                    </td>
-                    <td>yui
-                        <!--This won't work because every table row has a thing called orderTime. There needs to just be one.-->
-                        <a class="btn btn-danger" asp-controller="CurrentOrders" asp-action="CancelOrder">Cancel order</a>
                         <button type="submit" class="btn btn-success">Completed</button>
-
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
-</form>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

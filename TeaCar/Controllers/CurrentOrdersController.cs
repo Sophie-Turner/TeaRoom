@@ -21,15 +21,15 @@ namespace TeaCar.Controllers
 
         public IActionResult CancelOrder(CancelCompleteOrder cancelCompleteOrder)
         {
-            _context.Database.ExecuteSqlRaw("EXEC CancelCompleteOrder @orderTime",
-                new SqlParameter("@orderTime", cancelCompleteOrder.orderTime));
+            _context.Database.ExecuteSqlRaw("EXEC CancelCompleteOrder @orderId",
+                new SqlParameter("@orderId", cancelCompleteOrder.orderId));
             return RedirectToAction(nameof(Index));
         }
 
         public IActionResult CompletedOrder(UpdateCompleted updateCompleted)
         {
-            _context.Database.ExecuteSqlRaw("EXEC UpdateCompleted @orderTime",
-                new SqlParameter("@orderTime", updateCompleted.orderTime));
+            _context.Database.ExecuteSqlRaw("EXEC UpdateCompleted @orderId",
+                new SqlParameter("@orderId", updateCompleted.orderId));
             return RedirectToAction(nameof(Index));
         }
 
@@ -48,7 +48,7 @@ namespace TeaCar.Controllers
             }
 
             var currentOrders = await _context.CurrentOrders
-                .FirstOrDefaultAsync(m => m.OrderTime == id);
+                .FirstOrDefaultAsync(m => m.orderTime == id);
             if (currentOrders == null)
             {
                 return NotFound();
@@ -68,7 +68,7 @@ namespace TeaCar.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("OrderTime,tableNum,itemName,quantity")] CurrentOrders currentOrders)
+        public async Task<IActionResult> Create([Bind("orderTime,orderId,tableNum,itemName,quantity")] CurrentOrders currentOrders)
         {
             if (ModelState.IsValid)
             {
@@ -100,9 +100,9 @@ namespace TeaCar.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(DateTime id, [Bind("OrderTime,tableNum,itemName,quantity")] CurrentOrders currentOrders)
+        public async Task<IActionResult> Edit(DateTime id, [Bind("orderTime,orderId,tableNum,itemName,quantity")] CurrentOrders currentOrders)
         {
-            if (id != currentOrders.OrderTime)
+            if (id != currentOrders.orderTime)
             {
                 return NotFound();
             }
@@ -116,7 +116,7 @@ namespace TeaCar.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!CurrentOrdersExists(currentOrders.OrderTime))
+                    if (!CurrentOrdersExists(currentOrders.orderTime))
                     {
                         return NotFound();
                     }
@@ -139,7 +139,7 @@ namespace TeaCar.Controllers
             }
 
             var currentOrders = await _context.CurrentOrders
-                .FirstOrDefaultAsync(m => m.OrderTime == id);
+                .FirstOrDefaultAsync(m => m.orderTime == id);
             if (currentOrders == null)
             {
                 return NotFound();
@@ -161,7 +161,7 @@ namespace TeaCar.Controllers
 
         private bool CurrentOrdersExists(DateTime id)
         {
-            return _context.CurrentOrders.Any(e => e.OrderTime == id);
+            return _context.CurrentOrders.Any(e => e.orderTime == id);
         }
     }
 }

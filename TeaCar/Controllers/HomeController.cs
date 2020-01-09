@@ -7,6 +7,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using TeaCar.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Net.Http;
+using Newtonsoft.Json;
+using Microsoft.AspNetCore.Http;
+using System.Text;
 
 namespace TeaCar.Controllers
 {
@@ -22,9 +27,11 @@ namespace TeaCar.Controllers
         public IActionResult Index()
         {
             _context.Database.ExecuteSqlRaw("EXEC CancelIncompleteOrder");
+
             return View();
         }
 
+        
         public IActionResult Privacy()
         {
             return View();

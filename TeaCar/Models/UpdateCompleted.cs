@@ -7,6 +7,6 @@ namespace TeaCar.Models
 {
     public class UpdateCompleted
     {
-        public DateTime orderTime { get; set; }
+        public int orderId { get; set; }
     }
 }
